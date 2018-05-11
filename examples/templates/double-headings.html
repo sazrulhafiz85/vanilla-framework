@@ -1,0 +1,931 @@
+---
+layout: default
+title: Vertical rythm
+category: _base
+---
+<h6 class="muted-heading">Cloud</h6 class="muted-heading">
+
+<section class="p-strip--light p-strip--hero is-deep is-bordered">
+  <div class="row">
+    <div class="col-10">
+      <h1>The standard OS for cloud computing</h1>
+      <p class="p-heading--four">70% of public cloud workloads and 54% of OpenStack clouds<a href="#fn1" id="r1">*</a></p>
+      <p><a href="/download/cloud" class="p-button--positive">Install OpenStack</a></p>
+    </div>
+  </div>
+</section>
+
+
+<section class="p-strip is-deep is-bordered">
+  <div class="row">
+    <div class="col-7">
+      <h1>The number one OpenStack</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7 suffix-1">
+      <p>As the number one platform for OpenStack and also the number one  platform for public clouds, Canonical provides consulting, training, enterprise support and remote operations, to help you focus on what matters most — your applications, not the infrastructure.</p>
+      <ul class="p-list">
+        <li class="p-list__item is-ticked">Ubuntu is the most widely used Linux distribution for OpenStack</li>
+        <li class="p-list__item is-ticked">AT&amp;T, Bloomberg, Paypal, eBay, Sky and Walmart build OpenStack with Canonical on Ubuntu</li>
+        <li class="p-list__item is-ticked">Ongoing operations like upgrading OpenStack are simplified with Canonical’s reference architecture</li>
+        <li class="p-list__item is-ticked">BootStack is a fully managed OpenStack cloud, on your hardware, in your data center, by Canonical</li>
+        <li class="p-list__item is-ticked">Foundation Cloud Build includes set-up, design, architecture and training in one package by Canonical</li>
+      </ul>
+      <p><a href="/download/cloud" class="p-button--positive" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Openstack', 'eventLabel' : 'Install OpenStack ', 'eventValue' : undefined });">Install OpenStack</a></p>
+
+    </div>
+    <div class="col-4">
+
+<figure id="ubuntu-pie" class="ubuntu-pie"><svg width="308" height="308" viewBox="0 0 310 310"><g transform="translate(155,155)"><path d="M9.429780353434619e-15,-154A154,154 0 1,1 -47.588617133741955,146.46270350945363L-23.794308566870978,73.23135175472682A77,77 0 1,0 4.7148901767173095e-15,-77Z" class="ubuntu" style="stroke: rgb(174, 167, 159); stroke-width: 1; stroke-dasharray: 3, 3;"></path><path d="M-47.588617133741955,146.46270350945363A154,154 0 0,1 1.0849013557351542e-13,-154L5.424506778675771e-14,-77A77,77 0 0,0 -23.794308566870978,73.23135175472682Z" class="other" style="stroke: rgb(174, 167, 159); stroke-width: 1; stroke-dasharray: 3, 3;"></path><text y="-5" class="ubuntu-label"><tspan x="85.5" dy="0">ubuntu</tspan><tspan x="90" dy="20">55%</tspan></text><text y="-5" class="other-label"><tspan x="-133.5" dy="0">other</tspan><tspan x="-134" dy="20">45%</tspan></text></g></svg></figure>
+<p class="u-no-margin--bottom"><small>Ubuntu powers 55% of OpenStack in production. Source: <a href="https://www.openstack.org/assets/survey/April2017SurveyReport.pdf" class="external">OpenStack survey — April 2017 [PDF 10.6MB]</a></small></p>
+
+
+<script src="https://assets.ubuntu.com/v1/3c99518b-d3-version3.5.6.min.js"></script>
+
+<script>
+function drawChart() {
+  'use strict';
+  document.querySelector('#ubuntu-pie').innerHTML = "";
+  var width = document.querySelector('#ubuntu-pie').offsetWidth;
+
+  var dataset = [
+    { label: 'ubuntu', count: 55, left: (width / 2.75), top: -5 },
+    { label: 'other', count: 45, left: -(width / 2.75), top: -5 }
+  ];
+  var height = width;
+  var radius = Math.min(width, height) / 2;
+  var donutWidth = width / 4;
+  var color = d3.scale.category20b();
+  var svg = d3.select('#ubuntu-pie')
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('viewBox', '0 0 ' + (width + 2) + ' ' + (height + 2))
+    .append('g')
+    .attr('transform', 'translate(' + (width / 2 + 1) +
+    ',' + (height / 2 + 1) + ')');
+
+  var arc = d3.svg.arc()
+    .innerRadius(radius - donutWidth)
+    .outerRadius(radius);
+
+  var pie = d3.layout.pie()
+    .value(function(d) { return d.count; })
+    .sort(null);
+
+  svg.selectAll('path')
+    .data(pie(dataset))
+    .enter()
+    .append('path')
+    .style('stroke', '#aea79f')
+    .style('stroke-width', '1')
+    .style("stroke-dasharray", ("3, 3"))
+    .attr('d', arc)
+    .attr('class', function(d, i) {
+      return d.data.label;
+    });
+
+  // Add labels as <text> elements
+  var labels = svg.selectAll('foreignObject')
+    .data(dataset)
+    .enter()
+    .append('text')
+    .attr('y', function(d) { return d.top; })
+    .attr('class', function(d) { return d.label + '-label'; });
+
+  // Fill <text> labels with <tspan>s
+  labels.append('tspan')
+    .text(function (d) {return d.label;})
+    .attr('x', function(d) {
+      var spanWidth = 43;
+      if( d.label === 'ubuntu') { spanWidth = 53 }
+      return d.left - spanWidth / 2;
+    })
+    .attr('dy', '0');
+  labels.append('tspan')
+    .text(function (d) {return '' + d.count + '%'})
+    .attr('x', function(d) { return d.left - 44 / 2; })
+    .attr('dy', '20');
+}
+
+window.addEventListener('resize', drawChart, false);
+
+drawChart();
+</script>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="p-strip--accent is-deep">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-8">
+        <h1 class="p-heading--two">Fully managed cloud, by Canonical</h1>
+        <p>BootStack, the fully managed cloud service from Canonical is the fastest path to a production private OpenStack cloud. Focus on your business while Canonical takes care of building and running your OpenStack cloud.</p>
+        <ul class="p-list">
+          <li class="p-list__item is-ticked">Fully managed cloud on your servers, at your location</li>
+          <li class="p-list__item is-ticked">Built in three weeks using a proven reference architecture</li>
+          <li class="p-list__item is-ticked">Customise the architecture in iterations based on workloads</li>
+          <li class="p-list__item is-ticked">Enterprise class SLA for the cloud </li>
+          <li class="p-list__item is-ticked">Your team has access to all machines at all times</li>
+          <li class="p-list__item is-ticked">Monitoring and log management integration</li>
+          <li class="p-list__item is-ticked">When you’re ready, we will hand over the keys</li>
+        </ul>
+        <p>
+          <a href="https://assets.ubuntu.com/v1/3465457b-Bootstack_datasheet.pdf" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'External Link', 'eventAction' : 'Read the datasheet', 'eventLabel' : 'Bootstack datasheet - Top CTA' : undefined });" class="p-button--positive">Read the datasheet</a>&emsp;<a href="/cloud/contact-us?product=cloud-managed-cloud" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Talk to us', 'eventLabel' : 'Bootstack - Top CTA' : undefined });" class="p-button--neutral">Talk to us</a>
+        </p>
+
+      </div>
+      <div class="col-4 u-vertically-center u-align--center u-hide--small">
+        <img src="https://assets.ubuntu.com/v1/c5838368-openstack-cloud.png" alt="OpenStack logo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip is-deep">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-6">
+        <h1>Using Ubuntu in the public cloud</h1>
+        <p>Ubuntu Server is the world’s most popular cloud operating system. Thanks to its security, versatility and policy of regular updates, Ubuntu is the leading cloud guest OS, running most workloads in public clouds today. With certified images available on clouds from partners like AWS, Microsoft Azure, Google Cloud Platform, Rackspace, Oracle and IBM Softlayer, Ubuntu is the only free cloud operating system with the option of enterprise-grade commercial support.</p>
+      </div>
+      <div class="col-6 prefix-1 u-hide--small u-vertically-center">
+        <img src="https://assets.ubuntu.com/v1/d0d11304-image-publiccloud.svg" alt="Public Cloud">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip--image is-dark u-no-background--small is-deep" style="background-image: url('https://assets.ubuntu.com/v1/bd1d8c1d-juju-suru-blue-background.png'); background-size: 100% 100%;  background-color: #002835;">
+  <div class="row">
+    <div class="col-7">
+      <img src="https://assets.ubuntu.com/v1/9afc1e35-juju_white-orange_hex.svg" width="175" alt="Juju">
+      <h1>Operate big software at&nbsp;scale on any cloud</h1>
+      <p>Model, configure and manage services with Juju and deploy to all major public and private clouds with only a few commands. Hundreds of preconfigured services available in the Juju store.</p>
+      <p><a class="p-button--positive" href="https://jujucharms.com/">Get started</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip is-deep is-bordered">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-6">
+        <h1>Ubuntu&nbsp;Advantage&nbsp;Storage</h1>
+        <p>Ubuntu Advantage Storage from Canonical embeds the proven software‐defined storage (<abbr title="Software‐defined storage">SDS</abbr>) technologies of Ceph, NexentaEdge, Swift and SwiftStack, into a 24x7‐supported software solution with a unique metered pricing model.</p>
+        <p><a class="p-button--positive" href="/cloud/contact-us?product=cloud-storage">Request a demo</a></p>
+      </div>
+      <div class="col-6 prefix-1 u-align--center u-vertically-center u-hide--small">
+        <img class="hero-image" width="100%" src="https://assets.ubuntu.com/v1/c2d50399-storage.svg" alt="Lots of server pictos in a cloud">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip is-bordered">
+  <div class="row">
+    <div class="col-7">
+      <h1>Partners</h1>
+      <p>The cloud world is evolving rapidly and Ubuntu is at the centre, with world‐class partners and a suite of OpenStack partner programmes.</p>
+    </div>
+    <div class="col-5 u-align--center">
+      <img src="https://assets.ubuntu.com/v1/1c786630-image-cloud.svg" alt="Ubuntu in a cloud">
+    </div>
+  </div>
+</section>
+
+<section class="p-strip--image u-no-background--small is-deep is-bordered" style="background-image: url('https://assets.ubuntu.com/v1/1d2ab6ba-suru-background.png'); background-size: 100% 100%;">
+    <div class="row">
+      <div class="col-8">
+        <h1>Foundation Cloud Build — your fast track to success</h1>
+        <p>Building an OpenStack cloud requires domain expertise, cloud know-how, and detailed platform knowledge. After years of deploying, upgrading, and supporting OpenStack clouds, Canonical created Foundation Cloud Build, a fixed-price cloud with a proven reference architecture that Canonical will deploy for you on your premises.</p>
+        <p><a href="https://assets.ubuntu.com/v1/8cf6fe4f-Foundation-Cloud-Build-Openstack-data-sheet.pdf" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'External Link', 'eventAction' : 'Read the datasheet', 'eventLabel' : 'Read the datasheet - Top CTA' : undefined });" class="p-button--positive">Read the datasheet</a>&emsp;<a href="/cloud/contact-us?product=foundation-cloud" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Talk to us', 'eventLabel' : 'Talk to us - Top CTA' : undefined });" class="p-button--neutral">Talk to us</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-strip is-deep is-bordered u-image-position">
+  <div class="row">
+    <div class="col-6">
+      <h1>Train with Ubuntu</h1>
+      <p>Train your sysadmins and devops engineers to become Ubuntu OpenStack experts. Canonical runs training programmes to suit all environments and all levels of experience. Explore, prototype and design with cloud technologies so you can get the most out of OpenStack. All classes and materials are provided in English.</p>
+    </div>
+    <img class="u-image-position--top u-image-position--right u-hide--small u-no-margin--top" alt="" src="https://assets.ubuntu.com/v1/58f24048-image-ubuntu-openstack-medals.png" style="right: 150px;">
+  </div>
+</section>
+
+<section class="p-strip--accent is-deep">
+  <div class="row">
+    <div class="col-8">
+      <h1>Canonical empowers the financial services industry</h1>
+      <p>With evolving regulations, growing security threats and increasing costs – plus the emergence of game-changing new technologies like AI and Blockchain – the finance world needs practical solutions, now more than ever. That’s why Canonical enables sellside and buyside financial services institutions, retail banking operations and insurance and fintech firms to build secure, agile infrastructure with the flexibility to scale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip--image is-dark is-deep" style="background-image: url('https://assets.ubuntu.com/v1/ebdfffbf-Aubergine_suru_background.png'); background-position: 77% 0%;">
+  <div class="row">
+    <div class="col-8">
+      <h1>Ubuntu for telcos</h1>
+      <p>As an established leader in cloud computing, Canonical lets you apply the webscale savings and best practice  that are necessary to succeed in the telco world. By using established open source software to automate the deployment and operation of NFVI and IoT solutions, we can help you become even more agile while reducing your costs and time to market.</p>
+      <ul class="p-inline-list">
+        <li class="p-inline-list__item">
+          <a class="p-button--positive" href="https://www.brighttalk.com/webcast/6793/290067" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'External Link', 'eventAction' : 'Watch Cloud to Edge webinar', 'eventLabel' : 'Watch Cloud to Edge webinar', 'eventValue' : undefined });"><span class="p-link--external">Watch the 'Cloud to Edge' webinar</span></a>
+        </li>
+        <li class="p-inline-list__item">
+          <a href="/cloud/contact-us" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Contact us', 'eventLabel' : 'Telcos - Top CTA' });" class="p-button--neutral">Contact us</a>
+        </li>
+      </ul>
+    <p></p>
+  </div>
+  <div class="col-4">
+    <img src="https://assets.ubuntu.com/v1/49b9302b-network-equipment-white.svg?w=200" width="200" alt="">
+  </div>
+</div>
+</section>
+
+<section class="p-strip--image is-deep is-dark" style="background-image: url('https://assets.ubuntu.com/v1/ebdfffbf-Aubergine_suru_background.png'); background-position: 77% 0%;">
+  <div class="row">
+    <div class="col-8">
+      <h1>Dedicated to the security of Ubuntu</h1>
+      <p>Since its inception in 2004, Ubuntu has been built on a foundation of enterprise-grade, industry leading security practices. From our toolchain to the suite of packages we use and from our update process to our industry standard certifications, Canonical never stops working to keep Ubuntu at the forefront of safety  and reliability.</p>
+      <p><a class="p-button--positive" href="https://www.brighttalk.com/webcast/6793/290073" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'External Link', 'eventAction' : 'Watch the Ubuntu security webinar', 'eventLabel' : 'Watch the Ubuntu security webinar', 'eventValue' : undefined });"><span class="p-link--external">Watch the Ubuntu security webinar</span></a></p>
+    </div>
+  </div>
+</section>
+
+
+<h6 class="muted-heading">Server</h6>
+<section class="p-strip--image is-dark is-deep" style="background-image: url('https://assets.ubuntu.com/v1/a328d904-MAAS-background-desktop-large-screen.png'); background-size: 100% 100%;">
+  <div class="row">
+    <div class="col-8">
+      <img src="https://assets.ubuntu.com/v1/4fac1d52-MAAS-Logo.svg" alt="MAAS" width="250">
+      <h1>Transform your physical infrastructure into a cloud</h1>
+      <p>MAAS is a server provisioning tool which offers complete automation of your physical servers for amazing data centre operational efficiency. On premises, open source and supported.</p>
+      <p><a href="/download/server/provisioning" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Try MAAS', 'eventLabel' : 'Try MAAS - Top CTA' : undefined });" class="p-button--positive">Try MAAS</a> <a href="/server/maas/contact-us" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Contact sales', 'eventLabel' : 'Contact sales - Top CTA' : undefined });" class="p-button--neutral">Contact sales</a></p>
+    </div>
+  </div>
+</section>
+<div class="p-strip is-deep is-bordered">
+  <div class="row">
+    <div class="col-8">
+      <h1>Ubuntu leads in hyperscale</h1>
+      <p>Ubuntu is the hyperscale OS, natively powering scale-out workloads on a new wave of low-cost, ultra-dense hardware based on x86 and Arm processors.</p>
+      <p><a class="p-button--positive" href="/download/server">Download Ubuntu Server</a></p>
+      <p><a href="/download/arm">Download Ubuntu for ARM &nbsp;›</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="p-strip--image is-dark is-deep" style="background-position: center center; background-image:url('https://assets.ubuntu.com/v1/e2c4c299-server-livepatch-hero.jpg?w=984')">
+  <div class="row">
+    <div class="col-8">
+      <h1>Canonical Livepatch Service</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      <h2>Apply critical kernel patches without rebooting.</h2>
+      <p>Want to apply critical kernel security fixes without rebooting your system? The Canonical Livepatch Service for Ubuntu 16.04 LTS and Ubuntu 14.04 LTS reduces planned or unplanned downtime while maintaining compliance and security.</p>
+      <p><a class="p-button--positive" href="/livepatch">Sign up</a></p>
+    </div>
+  </div>
+</div>
+<div class="p-strip is-deep">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-7">
+        <h1>Containers</h1>
+        <h2>Ubuntu is the number one platform for containers</h2>
+        <p>From LXD to Kubernetes to Docker, Canonical has partnered with industry leaders to offer a full range of technologies and services to run containers at scale on public, private and hybrid or bare metal clouds.</p><p>
+          </p><p><a href="/containers/contact-us?product=containers-overview">Talk to us about your container strategy&nbsp;›</a></p>
+        </div>
+        <div class="col-5 u-align--center u-hide--small">
+          <img class="u-float--right" src="https://assets.ubuntu.com/v1/a9aff224-Containers-illustration.svg" width="350" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-strip is-deep">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-7">
+        <h1>The LXD container hypervisor</h1>
+        <h2>10x the density of ESX, 25% faster, zero latency</h2>
+        <p>Move your Linux VMs straight to containers, easily, without modifying the apps or administration processes. Canonical’s LXD is a pure-container hypervisor that runs unmodified Linux guest operating systems with VM-style operations at incredible speed and density.</p>
+        <p><a href="/containers/contact-us?product=containers-lxd">Talk to us about your container strategy&nbsp;›</a></p>
+      </div>
+      <div class="col-5 u-align--center u-vertically-center">
+        <img src="https://assets.ubuntu.com/v1/425efe3a-lxd.svg" width="260" alt="LXD">
+      </div>
+    </div>
+  </div>
+</div>
+<section class="p-strip is-bordered">
+  <div class="row u-equal-height u-vertically-center">
+    <div class="col-8">
+      <h1>Kubernetes for the enterprise</h1>
+      <p>This is pure Kubernetes tested across the widest range of clouds with modern metrics and monitoring, brought to you by the people who deliver Ubuntu.</p>
+      <p class="u-no-margin--top"><a href="https://tutorials.ubuntu.com/tutorial/install-kubernetes-with-conjure-up?_ga=2.25375934.2035833349.1504518498-2070601899.1473694436" class="p-button--positive" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'External Link', 'eventAction' : 'Try it now', 'eventLabel' : 'Try it now - Hero CTA' : undefined });"><span class="p-link--external">Try it now</span></a>&emsp;<a href="/containers/contact-us" class="p-button--neutral" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Contact sales', 'eventLabel' : 'Contact sales - Hero CTA' : undefined });">Contact sales</a></p>
+    </div>
+    <div class="col-4 u-align--center u-hide--small">
+      <img src="https://assets.ubuntu.com/v1/96d35aa4-certified-kubernetes-logo.svg?w=300" alt="Kubernetes Certified Service Provider">
+    </div>
+  </div>
+</section>
+<section class="p-strip--accent is-deep">
+    <div class="row u-equal-height u-vertically-center">
+      <div class="col-7">
+        <h1>Managed Kubernetes</h1>
+        <p>Focus on your business while Canonical takes care of building and running your Kubernetes infrastructure.
+        Canonical will set-up and operate your Kubernetes cluster for you, with in-house experts on-hand at all times to stand-up and scale your cluster. And, when you’re ready, we will hand over operational control.</p>
+        <ul>
+          <li>Fully managed Kubernetes on your bare metal, VMWare, OpenStack or any public cloud</li>
+          <li>Built in two weeks using a proven reference architecture with our <a class="p-link--inverted" href="/kubernetes">Kubernetes consulting packages</a></li>
+          <li>Customise the architecture in iterations based on workloads</li>
+          <li>Enterprise class SLA for the infrastructure, upgrades included</li>
+          <li>Monitoring and log management integration</li>
+          <li>When you’re ready, we will hand over the keys</li>
+        </ul>
+        <p><a href="/containers/contact-us?product=containers-managed-kubernetes" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'External Link', 'eventAction' : 'Schedule a Kubernetes demo', 'eventLabel' : 'Schedule a Kubernetes demo - Top CTA' : undefined });" class="p-button--positive">Schedule a Kubernetes demo</a></p>
+      </div>
+      <div class="col-5 u-align--center u-hide--small">
+        <img src="https://assets.ubuntu.com/v1/4f7c6084-cloud-key.svg" alt="Kubernetes Managed Service Provider">
+      </div>
+    </div>
+  </section>
+  <div class="p-strip is-deep">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-8">
+        <h1>Docker Engine on Ubuntu</h1>
+        <h2>Integrated support service with enterprise&nbsp;SLAs</h2>
+        <p>Docker Engine is a lightweight container runtime with robust tooling that builds and runs your container. Over 65% of all Docker-based scale out operations run on Ubuntu.</p>
+        <p>Canonical works closely with Docker Inc. to deliver an integrated Docker Enterprise Edition offering on Ubuntu. This partnership provides customers with the fastest and easiest path for support of Ubuntu and Docker Engine in enterprise Docker operations.</p>
+        <p><a href="/containers/contact-us?product=containers-docker">Talk to us about your container strategy&nbsp;›</a></p>
+      </div>
+      <div class="col-4 u-vertically-center u-align--center">
+        <img src="https://assets.ubuntu.com/v1/fe637cb5-docker.svg" width="220" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<section class="p-strip--image is-light is-deep is-bordered" style="background-image:url('https://assets.ubuntu.com/v1/364631d0-desktop-overview-hero.jpg?w=984'); background-position: 0 75%; padding: 6.25rem 0; min-height: 573px">
+  <div class="row">
+    <div class="col-6">
+      <div class="p-card--overlay">
+        <h1>Ubuntu for desktops</h1>
+        <p>Learn how the Ubuntu desktop operating system powers millions of PCs and laptops around the world.</p>
+        <p><a href="/download/desktop" class="p-button--positive">Download Ubuntu</a></p>
+        <p><a href="/desktop/features">Take a look&nbsp;›</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="p-strip u-image-position is-deep is-bordered">
+  <div class="row">
+    <div class="col-6">
+      <h1>Features</h1>
+      <p>Enjoy the simplicity of Ubuntu’s intuitive interface. Fast, secure and with thousands of apps to choose from — for everything you want to do, Ubuntu has what you need.</p>
+      <p><a href="/download/desktop" class="p-button--positive">Download Ubuntu</a></p>
+    </div>
+    <div class="col-6 u-vertically-center u-hide--small">
+      <img class="u-visible--large u-hide--medium u-image-position--top" src="https://assets.ubuntu.com/v1/9fe68ee3-desktop-features-hero.png?w=600" alt="" style="top: 70px; left: 50%;">
+      <img class="u-visible--medium u-hide--large" src="https://assets.ubuntu.com/v1/9fe68ee3-desktop-features-hero.png?w=600" alt="" style="top: 70px; right: 40px;">
+    </div>
+  </div>
+</section>
+<section class="p-strip u-image-position is-deep is-bordered">
+  <div class="row">
+    <div class="col-6">
+      <h1>Ubuntu for enterprise</h1>
+      <p>On the desktop, Ubuntu has been widely adopted by small and large enterprises because of its ease of use, speed, apps, security model, management tools and low cost of ownership.</p>
+      <p><a href="/desktop/contact-us?product=desktop-enterprise" class="p-button--positive">Contact us</a></p>
+      <p><a href="https://buy.ubuntu.com" class="p-link--external">Buy Ubuntu Advantage</a></p>
+    </div>
+    <div class="col-6 u-vertically-center u-hide--small">
+      <img class="u-visible--large u-hide--medium u-image-position--top" src="https://assets.ubuntu.com/v1/ca8a41c4-desktop-enterprise-hero.png?w=600" alt="" style="top: 70px; right: 20px;">
+      <img class="u-visible--medium u-hide--large" src="https://assets.ubuntu.com/v1/ca8a41c4-desktop-enterprise-hero.png?w=600" alt="" style="top: 70px; right: 40px;">
+    </div>
+  </div>
+</section>
+<section class="p-strip--image is-light is-deep is-bordered" style="background-image:url('https://assets.ubuntu.com/v1/3a51704e-desktop-education-hero.jpg?w=984'); background-position: 0 43%; padding: 150px 0;">
+  <div class="row">
+    <div class="col-12 suffix-5">
+      <div class="p-card--overlay">
+        <h1>Ubuntu for education</h1>
+        <p>With a wide range of educational software and certified hardware, Ubuntu provides secure, cost-effective, accessible computing for students, teachers and school administrators. Institutions can deploy Ubuntu for free or can use Canonical’s commercial services and products to manage Ubuntu desktop, cloud and server deployments.</p>
+        <p class="u-no-margin--top">
+          <a href="/desktop/contact-us?product=desktop-education" class="p-button--positive" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'External Link', 'eventAction' : 'Contact us', 'eventLabel' : 'Contact us for commercial support - Hero CTA' : undefined });">Contact us for commercial support</a>
+          <a href="/download/desktop" class="p-button--neutral" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Download now', 'eventLabel' : 'Download now - Hero CTA' : undefined });">Download now</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="p-strip--image is-light is-deep" style="background-image:url('https://assets.ubuntu.com/v1/826a470a-desktop-government-hero+%281%29.jpg'); height: 500px; background-position: 0 77%;">
+  <div class="row">
+    <div class="col-6">
+      <h1>Ubuntu for government</h1>
+      <p>Ubuntu provides central and local government departments with secure, open source, cost-effective, accessible computing on an extensive range of certified hardware.</p>
+      <p><a href="/desktop/contact-us?product=desktop-government" class="p-button--neutral">Contact us</a></p>
+    </div>
+  </div>
+</section>
+<section class="p-strip u-image-position is-deep is-bordered">
+    <div class="row">
+      <div class="u-equal-height">
+      <div class="col-6">
+        <h1>Ubuntu Desktop for&nbsp;developers</h1>
+        <p>Whether you’re a mobile app developer, an engineering manager, a music or video editor or a financial analyst with large-scale models to run — in fact, anyone in need of a powerful machine for your work — Ubuntu is the ideal platform.</p>
+        <p><a href="/download/desktop/" class="p-button--positive">Get Ubuntu now</a></p>
+      </div>
+      <div class="col-6 u-vertically-center u-hide--small">
+        <img class="u-visible--large u-hide--medium u-image-position--top" src="https://assets.ubuntu.com/v1/2e62cdb4-desktop-developer-hero.png?w=600" alt="" style="top: 105px; left: 50%;">
+        <img class="u-visible--medium u-hide--large" src="https://assets.ubuntu.com/v1/2e62cdb4-desktop-developer-hero.png?w=600" alt="" style="top: 105px; right: 40px;">
+      </div>
+      </div>
+    </div>
+  </section>
+  <section class="p-strip is-deep is-bordered">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-7">
+        <h1>Ubuntu for partners</h1>
+        <p>We partner with the world’s leading hardware manufacturers and silicon vendors to help deliver an extensive range of Ubuntu certified desktops, notebooks and servers. Becoming a partner means you work with our engineering and certification teams to guarantee the compatibility and optimised performance of all your hardware for the life of the OS.</p>
+        <p><a href="http://partners.ubuntu.com/programmes/hardware" class="p-link--external">Learn more about becoming a partner</a></p>
+      </div>
+      <div class="col-5 u-align--center">
+        <img src="https://assets.ubuntu.com/v1/3ba54a27-picto-contact-midaubergine.svg" class="u-hide--small" width="200" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+<div class="p-strip--light is-deep is-bordered">
+  <div class="row">
+    <div class="col-7">
+      <h1>A ‘snap’ is a universal Linux package</h1>
+      <p>Snaps work on any distribution or device. Snaps are faster to install, easier to create, safer to run, and they update automatically and transactionally so your app is always fresh and never broken.</p>
+      <p>The public collection of snaps includes the latest and best apps from GitHub and beyond, so you have the whole world of Linux apps at your fingertips.</p>
+      <p><a class="p-button--positive" href="http://snapcraft.io/docs/core"><span class="external">Get started with snaps</span></a></p>
+    </div>
+    <div class="col-5 prefix-1 suffix-2">
+      <ul class="p-list p-list--imgstack u-hide--small">
+        <li class="p-list__item">
+          <img src="https://assets.ubuntu.com/v1/c24cb4b9-logo-intel.svg" class="inline-logos__image" alt="Intel logo"></li>
+        <li class="p-list__item">
+          <img src="https://assets.ubuntu.com/v1/47e40767-power8.png" class="inline-logos__image" alt="POWER logo"></li>
+        <li class="p-list__item">
+          <img src="https://assets.ubuntu.com/v1/4efbd291-Arm_logo_blue_cropped.svg" alt="Arm logo"></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<section class="p-strip is-bordered is-deep">
+  <div class="row">
+    <div class="col-6">
+      <h1>Ubuntu 17.10</h1>
+      <p>In April 2018, the next long-term support (LTS) release of Ubuntu will come with GNOME Shell as default.  Ubuntu 17.10 is the first release to include the new shell, so it’s a great way to preview the future of Ubuntu.</p>
+      <p><a href="/download/desktop" class="p-button--positive" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Get Ubuntu 17.10', 'eventLabel' : 'Get Ubuntu 17.10 - hero' : undefined });">Get Ubuntu 17.10</a></p>
+    </div>
+    <div class="col-6 u-hide--small ">
+      <img src="https://assets.ubuntu.com/v1/b0b06642-Laptop.png?w=654" alt="Laptop running Ubuntu 17.10, showing insights.ubuntu.com">
+    </div>
+  </div>
+</section>
+<div class="p-strip--light is-deep is-bordered">
+  <div class="row">
+    <div class="col-6">
+      <h1>Ubuntu Core</h1>
+      <!-- small screen version -->
+      <img class="u-visible--small u-hide--medium u-hide--large" src="https://assets.ubuntu.com/v1/53163a88-IOT_core_infographic.svg?w=300" width="300" alt="" style="margin: 4rem 0;">
+      <p>Ubuntu Core is a tiny, transactional version of Ubuntu for IoT devices and large container deployments. It runs a new breed of super-secure, remotely upgradeable Linux app packages known as snaps ‐ and it’s trusted by leading IoT players, from chipset vendors to device makers and system integrators.</p>
+      <p><a class="p-button--positive" href="http://developer.ubuntu.com/en/snappy/start/?from=corepage"><span class="p-link--external">Download Ubuntu Core</span></a></p>
+      <p><a class="p-link--external" href="http://snapcraft.io/?from=corepage">Learn more about snaps</a></p>
+    </div>
+    <div class="col-6 u-hide--small">
+      <!-- medium and large screen version -->
+      <img src="https://assets.ubuntu.com/v1/53163a88-IOT_core_infographic.svg?w=600" style="margin-left: 4rem;" alt="">
+    </div>
+  </div>
+</div>
+<div class="p-strip--light is-deep is-bordered">
+  <div class="row u-equal-height">
+    <div class="col-6 suffix-1">
+      <h1>Ubuntu for the Internet&nbsp;of&nbsp;Things</h1>
+      <p>From home control to drones, robots and industrial systems, Ubuntu Core provides robust security, app stores and reliable updates. Ubuntu makes development easy, and snap packages make Ubuntu Core secure and reliable for widely distributed devices.</p>
+    </div>
+    <div class="col-6 u-align--center">
+      <img src="https://assets.ubuntu.com/v1/5d324631-Logo-block.svg" alt="Company logos of companies who choose Ubuntu Core">
+      <p class="p-header--muted">Leading brands choose Ubuntu Core for security,&nbsp;apps&nbsp;and&nbsp;updates</p>
+    </div>
+  </div>
+</div>
+<div class="p-strip is-deep is-bordered">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-7">
+        <h1>Digital signage on Ubuntu</h1>
+        <div class="u-hide--medium u-hide--large u-align--center" style="padding-top: 1em;">
+          <img src="https://assets.ubuntu.com/v1/4a0a6007-digital-signs.png" alt="" width="260">
+        </div>
+        <div class="col-5">
+          <ul class="p-list">
+            <li class="p-list__item is-ticked">Secure, reliable and remotely upgradable</li>
+            <li class="p-list__item is-ticked">Rich ecosystem of hardware and software solutions</li>
+            <li class="p-list__item is-ticked">Hundreds of thousands of devices already deployed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-5 u-vertically-center u-align--center u-hide--small">
+        <img srcset="https://assets.ubuntu.com/v1/4a0a6007-digital-signs.png?w=600 2x" src="https://assets.ubuntu.com/v1/4a0a6007-digital-signs.png?w=300" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-strip--image is-deep is-dark js-livestream__intro" style="background-position: center center; background-image:url('https://assets.ubuntu.com/v1/ecdbd3cb-robotics.jpg?w=984')">
+  <div class="row">
+    <div class="col-6 p-card--overlay">
+      <h1>Robots and drones,<br>rocking&nbsp;Ubuntu&nbsp;Core</h1>
+      <p>Autonomous, secure, and remotely upgradeable, the new wave of robots and drones feature amazing apps for advanced industrial intelligence.</p>
+    </div>
+  </div>
+</div>
+<section class="p-strip is-deep is-bordered">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-7 suffix-1">
+        <h1>IoT gateways on Ubuntu</h1>
+        <div class="col-7 u-hide--medium u-hide--large u-align--center" style="padding-top: 1em;">
+          <img class="row-hero__image" src="https://assets.ubuntu.com/v1/b181a602-iot_edge_gateways_infographic.svg" width="300" alt="">
+        </div>
+        <p>From industrial automation and building control to transportation and healthcare, gateways connect sensors and actuators to clouds while providing edge analytics and intelligence. Offload decision making to the gateway to ensure continuity and low-latency, and reduce the cost of backhaul for low-value data.</p>
+        <p>Ubuntu Core offers a secure, reliable and remotely upgradeable platform for intelligent edge devices.</p>
+      </div>
+      <div class="u-vertically-center col-5 u-align--center u-hide--small">
+        <img class="row-hero__image" src="https://assets.ubuntu.com/v1/b181a602-iot_edge_gateways_infographic.svg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="p-strip has-background is-deep">
+  <div class="row u-equal-height">
+    <div class="col-8">
+      <h1>An IoT app store for all your devices</h1>
+      <p>Manufacturers can cut the cost of managing software updates on their devices and take advantage of new revenue opportunities by selling services via their own branded IoT app store — hosted by Canonical.</p>
+      <ul class="p-inline-list">
+        <li class="p-inline-list__item">
+          <a class="p-button--positive" href="https://www.brighttalk.com/webcast/6793/290087" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'External Link', 'eventAction' : 'Webinar', 'eventLabel' : 'Watch the Path to IoT revenue webinar', 'eventValue' : undefined });"><span class="p-link--external">Watch the 'Path to IoT revenue' webinar</span></a>
+        </li>
+        <li class="p-inline-list__item">
+          <a href="/internet-of-things/contact-us?product=appstore" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Contact us', 'eventLabel' : 'Telcos - Top CTA' });" class="p-button--neutral">Contact us</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-4 u-align--center u-vertically-center u-hide--small">
+      <img class="hero-image" src="https://assets.ubuntu.com/v1/1570841c-icon-app-store.svg" alt="">
+    </div>
+  </div>
+</section>
+<section class="p-strip has-background is-deep is-bordered">
+  <div class="row u-equal-height">
+    <div class="col-7">
+      <h1>Ubuntu Advantage commercial support</h1>
+      <p>Canonical offers a range of Ubuntu Advantage packages to support and add value to your Ubuntu deployment. Ubuntu Advantage typically include Landscape, the Ubuntu systems management tool for security audit and compliance, and the Canonical Livepatch Service, which enables you to apply kernel fixes without restarting your Ubuntu 16.04 LTS systems.</p>
+      <p><a href="https://buy.ubuntu.com" class="p-button--positive"><span class="p-link--external">Visit the Ubuntu Advantage store</span></a></p>
+    </div>
+    <div class="col-5 u-align--center u-vertically-center u-hide--small">
+      <img alt="" src="https://assets.ubuntu.com/v1/11da76f5-image-management.svg" class="u-full-width">
+    </div>
+  </div>
+</section>
+<div class="p-strip is-deep u-no-padding--bottom">
+  <div class="row">
+    <div class="col-8 suffix-1">
+      <h1>Community support</h1>
+      <p>You can find support from a variety of sources. Take a look – you’re likely to find an answer to every question. If you can’t find an answer, just ask the people in our active forums.</p>
+    </div>
+    <div class="col-4 u-hide--small u-align--center">
+      <img src="https://assets.ubuntu.com/v1/039628d5-picto-community-orange.svg" width="150" alt="Community">
+    </div>
+  </div>
+</div>
+<section class="p-strip is-deep is-bordered">
+  <div class="row">
+    <div class="col-6">
+      <h1>Plans and pricing</h1>
+      <p>Ubuntu is always free to download, install, run, and upgrade. Free community support is available from <a href="https://usn.ubuntu.com/usn/">Ubuntu Security Notices</a>, <a href="http://askubuntu.com">AskUbuntu</a>, <a href="http://ubuntuforums.org">UbuntuForums</a>, <a href="http://launchpad.net/ubuntu">Launchpad</a>, <a href="http://planet.ubuntu.com">PlanetUbuntu</a>, <a href="https://wiki.ubuntu.com/IRC/ChannelList">IRC</a> and through <a href="https://lists.ubuntu.com">Mailing Lists</a>.</p>
+      <p>For enterprises with production workloads Canonical offers the following suite of Ubuntu Advantage tools, services and support packages.</p>
+      <p><a href="/support/contact-us?product=support-pricing" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Internal Link', 'eventAction' : 'Learn more', 'eventLabel' : 'Get in touch - Top CTA' : undefined });" class="p-button--positive">Get in touch</a></p>
+    </div>
+  </div>
+</section>
+<section class="p-strip--image is-deep is-dark" style="background-image:url('https://assets.ubuntu.com/v1/728c5851-Yakkety_Yak-Wallpaper_8192x4608_aubergine_wider.jpg');">
+  <div class="row u-equal-height">
+    <div class="col-8">
+      <h1>Ubuntu 12.04 ESM</h1>
+      <p>In April 2017, Ubuntu 12.04 LTS reached its end-of-life. For Ubuntu Advantage customers who can not upgrade to a newer version of Ubuntu Server, Canonical is offering Ubuntu 12.04 ESM (Extended Security Maintenance). ESM provides ongoing security fixes for the kernel and essential packages through April 2019.</p>
+      <p><a href="https://buy.ubuntu.com/" class="p-button--positive">Buy Ubuntu Advantage</a></p>
+      <p><a href="/support">Learn more about Ubuntu Advantage&nbsp;›</a></p>
+    </div>
+    <div class="col-4 u-vertically-center u-align--center u-hide--small">
+      <img src="https://assets.ubuntu.com/v1/9e59756d-shield-ESM.svg" width="150" alt="">
+    </div>
+  </div>
+</section>
+<section class="p-strip is-shallow">
+  <div class="row">
+    <div class="col-6">
+      <h1>Ubuntu resources</h1>
+      <h5>Selected resources from <a href="https://insights.ubuntu.com" class="p-link--external">insights.ubuntu.com</a></h5>
+    </div>
+  </div>
+</section>
+<div class="p-strip is-deep">
+  <div class="row">
+    <div class="col-12">
+      <h1>Get Ubuntu</h1>
+      <p>Ubuntu is completely free to download, use and share.</p>
+    </div>
+  </div>
+</div>
+<div class="p-strip is-deep is-bordered">
+  <div class="row">
+    <div class="col-10">
+      <div>
+        <h1>Get OpenStack</h1>
+        <p>
+          Try out OpenStack on a single machine or start building a production
+          cloud on a cluster: you choose.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 p-card--highlighted p-divider u-equal-height">
+      <div class="col-6 p-divider__block">
+        <p class="p-heading--five">Single machine</p>
+        <h2>Try OpenStack on a single&nbsp;machine</h2>
+        <p class="p-card__content">
+          Conjure-up is an ideal tool for people who want to build an
+          OpenStack cloud on a single machine in minutes.  Using LXD
+          containers, this OpenStack deployment perfectly models a
+          production cluster on real machines.
+        </p>
+        <p class="p-card__content">
+          <a href="/download/cloud/try-openstack">
+            Install OpenStack on a localhost&nbsp;›
+          </a>
+        </p>
+      </div>
+      <div class="col-6">
+        <p class="p-heading--five">Cluster</p>
+        <h2>Build your own production&nbsp;cloud</h2>
+        <p class="p-card__content">
+          The same conjure-up utility also deploys your production OpenStack
+          cloud across a rack of physical servers using
+          <a href="https://www.ubuntu.com/server/maas">MAAS</a> and the
+          underlying model enables you to operate OpenStack efficiently at
+          scale.
+        </p>
+        <p class="p-card__content">
+          <a href="/download/cloud/build-openstack">
+            Deploy OpenStack on a cluster of physical machines&nbsp;›
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-strip--light is-bordered">
+  <div class="row">
+    <div class="col-12">
+      <h1>Try OpenStack on a single machine using conjure-up</h1>
+      <div class="p-card--highlighted">
+        <div class="u-equal-height p-divider">
+          <div class="col-6 p-divider__block">
+            <h2>OpenStack with conjure-up</h2>
+            <p>Conjure-up’s ability to easily and quickly deploy real-world OpenStack on a single laptop using LXD containers is ideal for first-time users or developers.</p>
+          </div>
+          <div class="col-6 p-divider__block">
+            <h3>Requirements</h3>
+            <ul class="p-list">
+              <li class="p-list__item is-ticked">Laptop, desktop or virtual machine with 16GB RAM, Ubuntu 16.04 LTS, snapd and <a href="/containers/lxd" title="More information about LXD">LXD</a> installed</li>
+              <li class="p-list__item is-ticked">An hour of your time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-strip--light is-deep">
+  <div class="row">
+    <div class="col-11">
+      <h1>Build your own production private cloud</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="p-card--highlighted">
+      <div class="u-equal-height p-divider">
+        <div class="col-6 p-divider__block">
+          <h2>OpenStack with conjure-up</h2>
+          <p>Thanks to MAAS, the bare metal provisioning and management tool, conjure-up can talk to a cluster of servers.</p>
+        </div>
+        <div class="col-6 p-divider__block">
+          <h3>Minimum requirements<sup>*</sup></h3>
+          <p>4 x Intel x64 servers each with:</p>
+          <ul class="p-list">
+            <li class="p-list__item is-ticked">8GB RAM</li>
+            <li class="p-list__item is-ticked">Management card/BMC with IPMI onboard</li>
+          </ul>
+          <p><sup>*</sup> <small>Note: for production clouds 12 nodes are required,  including 3 nodes for High Availability MAAS-based infrastructure.</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-strip is-deep">
+  <div class="row u-vertically-center">
+    <div class="col-6">
+    <h1>Get started with big software, fast</h1>
+    <p>conjure-up lets you summon up a big-software stack as a “spell” — a&nbsp;model of the stack, combined with extra know-how to get you from an installed stack to a fully usable one. Start using your big software instead of learning how to deploy it.</p>
+    </div>
+    <div class="col-6 u-align--center u-hide--small">
+      <img src="https://assets.ubuntu.com/v1/1abb8716-conjure-up-illustration.svg" alt="conjure-up illustration">
+    </div>
+  </div>
+</div>
+<div class="p-strip--accent">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-6 suffix-1 u-vertically-center">
+      <div>
+        <h1>We are Canonical</h1>
+        <p class="p-heading--five">It is our mission to make open source software available to people everywhere. We believe the best way to fuel innovation is to give the innovators the technology they&nbsp;need.</p>
+        <p><a class="p-link--inverted" href="/about">About Canonical ›</a></p>
+      </div>
+    </div>
+      <div class="col-6">
+      <img src="https://assets.ubuntu.com/v1/15b74eb1-image-technology-for-innovators.png" class="static" alt="">
+      <div class="animation run">
+        <img src="https://assets.ubuntu.com/v1/7310840a-animation-text.png" alt="" class="text">
+        <div class="dot-1"></div>
+        <div class="dot-2"></div>
+        <img src="https://assets.ubuntu.com/v1/699209c4-orange-light.png" alt="" class="light">
+        <img src="https://assets.ubuntu.com/v1/24cce353-bulb.png" alt="" class="bulb">
+        <div class="background"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<section class="p-strip is-deep products-hero" style="overflow: hidden;">
+  <div class="row">
+    <div class="u-equal-height">
+      <div class="col-7 u-vertically-center">
+        <div class="content-wrap">
+          <h1 class="p-heading--two">Ubuntu: creating the world’s best open source software platform</h1>
+          <p>Ubuntu is a platform that spans from the PC and IoT devices to the server and the cloud. It includes a comprehensive suite of enterprise-grade tools for development, configuration, management and service&nbsp;orchestration. </p>
+          <p><a href="https://www.ubuntu.com" class="p-link--external">Learn more on ubuntu.com</a></p>
+        </div>
+    </div>
+      <div class="col-5">
+      <div class="products-hero-container">
+        <div class="products-hero-ubuntu"></div>
+        <div class="products-hero-desktop"></div>
+        <div class="products-hero-line-1"></div>
+        <div class="products-hero-phone"></div>
+        <div class="products-hero-line-2"></div>
+        <div class="products-hero-tablet"></div>
+        <div class="products-hero-line-3"></div>
+        <div class="products-hero-server"></div>
+        <div class="products-hero-line-4"></div>
+        <div class="products-hero-cloud"></div>
+        <div class="products-hero-line-5"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+<section class="p-strip is-bordered">
+  <div class="row">
+    <div class="col-8">
+      <h1>Services that make the most of Ubuntu</h1>
+      <p>With our flagship service, Ubuntu Advantage, we help our customers deploy and manage Ubuntu on the desktop, server and cloud. We also offer design and consulting services for customers considering large scale Ubuntu deployments. On delivery, all projects are supplemented with an Ubuntu Advantage service agreement, providing access to Canonical’s management software as well as 24/7 support.</p>
+      <p><a href="https://www.ubuntu.com/management" class="p-link--external">Learn more on ubuntu.com</a></p>
+    </div>
+  </div>
+</section>
+<section class="p-strip is-deep">
+  <div class="row">
+    <div class="col-9">
+      <h1>We partner with industry leaders</h1>
+      <p>At Canonical, we provide the services our partners need to ensure their hardware and software works optimally with the Ubuntu platform. This means working with OEMs, ODMs, ISVs and IHVs, delivering the software and services to complement their core competencies in design, manufacture and distribution. We help our partners deliver their products without the cost and complexity of operating system development, software engineering or global content distribution agreements.</p>
+      <p><a href="http://partners.ubuntu.com" class="p-link--external">Learn more on partners.ubuntu.com</a></p>
+    </div>
+  </div>
+</section>
+<section class="p-strip is-deep">
+  <div class="row">
+    <div class="col-7">
+      <h1>At Canonical, we believe in the power of open source to change the world</h1>
+      <p>Canonical was created alongside Ubuntu to help it reach a wider market. Our services help governments and businesses the world over with migrations, management and support for their Ubuntu deployments. Together with our partners, we ensure that Ubuntu runs reliably on every platform from the PC and the smartphone to the server and, crucially, the&nbsp;cloud.</p>
+    </div>
+    <div class="col-5">
+      <img src="https://assets.ubuntu.com/v1/a2e1cbda-hero-about.png" alt="">
+    </div>
+  </div>
+</section>
+<section class="p-strip--light is-deep">
+  <div class="row">
+    <div class="col-6">
+      <h1>If you want to make a difference, make the move to Canonical.</h1>
+      <p>Life at Canonical is anything but corporate. As a company that exists to support one of today’s most important open source projects, we are changing the world on a daily basis. It’s a collaborative environment, but one in which every member of the team takes personal responsibility for everything they&nbsp;produce.</p>
+      <p><a class="see-all" href="/careers/all-vacancies">See all vacancies ›</a></p>
+    </div>
+    <div class="col-6 prefix-1">
+      <img src="https://assets.ubuntu.com/v1/9e17b0a1-hero-careers-medium.png" alt="">
+    </div>
+  </div>
+</section>
+<section class="u-image-position p-strip--image is-dark is-bordered" style="overflow: hidden; background-color: #111; background-image:url('https://assets.ubuntu.com/v1/d7047b19-maas+hero-background--no-left-edge.png'); background-size: 1440px 1440px; background-position: 50% 0; background-repeat: no-repeat;">
+  <div class="row u-equal-height">
+    <div class="col-6">
+      <h1 class="p-heading--four">Metal as a Service:</h1>
+      <h2 class="p-heading--two">Say hello to your physical&nbsp;cloud</h2>
+      <p itemprop="description" class="p-heading--five">Complete automation of your physical servers for amazing data centre operational efficiency. On premises, open source and supported.</p>
+      <p class="u-no-margin--top"><a style="margin-right: 1rem;" aria-label="Find out how to install MAAS" href="/install" class="p-button--positive" itemprop="url">Install MAAS</a> <a href="/how-it-works" class="p-button--neutral">See how it works</a></p>
+    </div>
+    <div class="col-6 p-hero-video">
+      <a href="#" aria-label="Watch the MAAS video on YouTube" class="p-hero-video__link" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Video', 'eventAction' : 'Play', 'eventLabel' : 'Watch the MAAS video' });">
+        <img src="https://assets.ubuntu.com/v1/45146a8e-play-icon--white-on-black.svg" alt="" class="p-hero-video__play">
+        <img src="https://assets.ubuntu.com/v1/a7e4808f-MAAS-video-cover-cleaner.png" alt="" class="u-no-margin--top">
+      </a>
+      <div class="p-hero-video__video-container u-embedded-media">
+        <iframe class="p-hero-video__video u-embedded-media__element" width="640" height="480" src="https://www.youtube.com/embed/eHfaiKlUYsM" frameborder="0" allowfullscreen=""></iframe>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var videoLink = document.querySelector('.p-hero-video__link');
+        var video = document.querySelector('.p-hero-video__video');
+        videoLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          this.classList.add('is-playing');
+          video.src += '?autoplay=1';
+        });
+      });
+    </script>
+  </div>
+</section>
+<section class="p-strip--image is-dark is-deep" style="overflow: hidden; background-color: #333; background-image:url('https://assets.ubuntu.com/v1/6e4b2b20-MAAS-hero-background.png')">
+        <div class="row">
+            <div class="col-7 suffix-one">
+                <h1>Install MAAS</h1>
+                <p class="p-heading--four">Follow the instructions below to download, configure and install&nbsp;MAAS.</p>
+            </div>
+            <div class="p-card col-5">
+                <h3>Talk to our experts</h3>
+                <p>We make MAAS amazing, and we help people run critical infrastructure at scale with it. Contact us for more information or to discuss your specific needs.</p>
+                <p><a aria-label="Contact us for more information or to discuss your specific MAAS needs" href="/contact-us" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Interested in Professional', 'eventAction' : 'Click', 'eventLabel' : 'Contact Us' });">Contact us&nbsp;›</a></p>
+            </div>
+        </div>
+</section>
+<section class="p-strip--image is-dark is-deep" style="overflow: hidden; background-color: #333; background-image:url('https://assets.ubuntu.com/v1/6e4b2b20-MAAS-hero-background.png')">
+    <div class="row u-equal-height u-vertically-center">
+      <div class="col-11">
+        <h1>How it works</h1>
+        <p>MAAS has a tiered architecture with a central postgres database backing a ‘Region Controller (regiond)’ that deals with operator requests. Distributed Rack Controllers (rackd) provide high-bandwidth services to multiple racks. The controller itself is stateless and horizontally scalable, presenting only a REST API.</p>
+        <p>Rack Controller (rackd) provides <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr>, <abbr title="Intelligent Platform Management Interface">IPMI</abbr>, <abbr title="Preboot Execution Environment">PXE</abbr>, <abbr title="Trivial File Transfer Protocol">TFTP</abbr> and other local services. They cache large items like operating system install images at the rack level for performance but maintain no exclusive state other than credentials to talk to the controller.</p>
+      </div>
+      <div class="col-6 u-align--center">
+          <img src="https://assets.ubuntu.com/v1/b03d95a1-maas.io-how-it-works.svg" alt="MAAS structure diagram">
+      </div>
+    </div>
+</section>
+<section class="p-strip--image is-dark is-deep" style="overflow: hidden; background-color: #333; background-image:url('https://assets.ubuntu.com/v1/6e4b2b20-MAAS-hero-background.png')">
+    <div class="row u-equal-height u-vertically-center">
+      <div class="col-8">
+        <h1>Take a tour</h1>
+        <p class="p-heading--three" itemprop="description">Take a tour and get an overview of MAAS, including new features from the latest release.</p>
+      </div>
+    </div>
+</section>
+<section class="p-strip--image is-dark is-deep" style="overflow: hidden; background-color: #333; background-image:url('https://assets.ubuntu.com/v1/6e4b2b20-MAAS-hero-background.png')">
+  <div class="row">
+    <div class="col-8">
+      <h1 itemprop="description">Contact Canonical</h1>
+      <p class="p-heading--four">Are you interested in adopting MAAS for enterprise use or partner with Canonical? Just fill in the form below and a member of our team will be in touch within one working day. </p>
+    </div>
+    <div class="p-card col-4 u-no-margin--bottom">
+      <h3 class="p-card__title">Looking for a little professional support?</h3>
+      <p>If you are a small organisation, you can purchase packs of Ubuntu Advantage in our shop.</p>
+      <p><a href="https://buy.ubuntu.com" class="p-link--external" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'External link', 'eventAction' : 'Click', 'eventLabel' : 'Visit the Ubuntu Advantage shop' });">Visit the Ubuntu Advantage shop</a></p>
+    </div>
+  </div>
+</section>
