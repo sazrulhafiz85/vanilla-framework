@@ -162,6 +162,10 @@
   }
 
   // headings
+  .p-display-head {
+    @extend %vf-display-heading;
+  }
+
   h1 {
     @include vf-heading-1;
   }
@@ -204,7 +208,8 @@
   }
 
   // misc
-  strong {
+  strong,
+  .bold {
     @extend %bold;
   }
 
@@ -277,6 +282,17 @@
     padding-top: map-get($nudges, nudge--muted) + map-get($sp-before, muted);
   }
 
+
+  // XXX: replace hard coded values with variables
+  h1,
+  .p-heading--one {
+    & + h2,
+    & + .p-heading--two {
+      margin-top: -2.5rem;
+    }
+  }
+  ////
+
   ul,
   p,
   h5,
@@ -320,11 +336,22 @@
 
   // Heading placeholders
 
+  %vf-display-heading {
+    font-size: pow($ms-ratio, 10) * 1rem;
+    font-style: normal;
+    font-weight: 100;
+    line-height: map-get($line-heights, display-head);
+    margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--display);
+    margin-top: 0;
+    padding-top: map-get($nudges, nudge--display);
+
+  }
+
   %vf-heading-1 {
     @include heading-max-width--short;
     font-size: pow($ms-ratio, 8) * 1rem;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 100;
     line-height: map-get($line-heights, h1);
     margin-bottom: map-get($sp-after, h1) - map-get($nudges, nudge--h1);
     margin-top: 0;
@@ -424,12 +451,12 @@
 
 // Optimal max-width for main headings (up to 2 lines of copy)
 @mixin heading-max-width--short {
-  max-width: 20em;
+  max-width: 38em;
 }
 
 // Optimal max-width for headings (up to 3 lines of copy)
 @mixin heading-max-width--long {
-  max-width: 25em;
+  max-width: 38em;
 }
 
 // Optimal max-width for body copy
