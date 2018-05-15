@@ -11,6 +11,14 @@
     position: relative;
     width: 100%;
 
+    &.p-hr--subtle {
+      opacity: .5;
+    }
+
+    &.p-hr--dense {
+      margin-bottom: - $px;
+    }
+
     & + p {
       margin-top: -$sp-unit;
     }
